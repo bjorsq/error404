@@ -1,0 +1,5 @@
+{%- if site.environment == "development" -%}
+<script src="{{ "/assets/js/bundle.js" | absolute_url }}"></script>
+{%- else -%}
+<script src="{{ "/assets/js/bundle.min.js" | absolute_url }}"></script>
+{%- endif -%}

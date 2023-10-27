@@ -1,11 +1,11 @@
-html, body, .error404-container {
+html, body, #error404-container {
 	width:100%;
 	height:100%;
 	margin:0;
 	padding:0;
 }
-.error404-container {
+#error404-container {
 	position:relative;
-	background-image:url('https://www.newegg.com/insider/wp-content/uploads/windows_xp_bliss-wide.jpg');
+	background-image:url('../images/windows_xp_bliss-wide.jpg');
 	background-size: cover;
 }

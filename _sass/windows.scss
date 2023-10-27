@@ -1,4 +1,6 @@
 .window {
+	display: inline-block;
+	position:absolute;
 	.title-bar {
 		button {
 			cursor: pointer;
@@ -6,8 +8,6 @@
 	}
 }
 .mrsl {
-	display: inline-block;
-	position:absolute;
 	left: 0;
 	top: 0;
 	z-index: 1000;
@@ -15,4 +15,7 @@
 	.window-body {
 		text-align: center;
 	}
+}
+.mall {
+
 }

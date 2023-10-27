@@ -1,0 +1,17 @@
+- id: "carla"
+  title: "Mrs. L"
+  image: "carla.jpg"
+  width: 100
+  height: 130
+  timer: 499
+  layer: 50
+- id: "mall"
+  title: "Mall"
+  image: "mall.jpg"
+  width: 150
+  height: 160
+  posx: "centre"
+  posy: "centre"
+  timer: 8000
+  layer: 40
+
