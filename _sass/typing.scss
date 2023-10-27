@@ -1,0 +1,37 @@
+@keyframes blink {
+    0% {opacity: 1;}
+    40% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
+}
+.typing {
+	margin: 0 auto;
+	width: 900px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	.window-body {
+		height: 80px;
+		overflow: auto;
+		background: #fff;
+		color: #000;
+		margin :0;
+		padding: 1em;
+	}
+}
+.typed-text {
+	display: none;
+	font-size: 14px;
+	font-family: monospace;
+	padding:3px 0;
+}
+.input-cursor {
+	display: inline-block;
+	width: 2px;
+	height: 16px;
+	background-color: #000;
+	margin-left: 8px;
+	animation: blink .6s linear infinite alternate;
+}
