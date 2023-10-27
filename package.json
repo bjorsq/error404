@@ -1,0 +1,22 @@
+{
+  "name": "error404",
+  "version": "0.0.1",
+  "description": "error404 ========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bjorsq/error404.git"
+  },
+  "author": "Peter Edwards <peter.edwards@p-2.biz>",
+  "license": "CC-BY-NC-ND-4.0",
+  "bugs": {
+    "url": "https://github.com/bjorsq/error404/issues"
+  },
+  "homepage": "https://github.com/bjorsq/error404#readme",
+  "devDependencies": {
+    "uglify-js": "^3.17.4"
+  }
+}
