@@ -18,8 +18,8 @@ description: >-
   map out the composition for Pete and that has been shown in Amsterdam.
   The website was launched at the Lux in London.
 environment: development
-url: "http://www.bjorsq.net"
-baseurl: "/error404"
+url: "https://error404.bjorsq.net"
+baseurl: ""
 destination: _site/
 host: "localhost"
 google_analytics: ""

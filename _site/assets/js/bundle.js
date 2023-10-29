@@ -1,4 +1,5 @@
 
+
 var style = document.createElement('style');
 style.type = 'text/css';
 let l = ( ( window.innerWidth - 99 ) * 2 ) + ( ( window.innerHeight - 155 ) * 2 );
