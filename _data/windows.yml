@@ -1,17 +1,854 @@
 - id: "carla"
   title: "Mrs. L"
   image: "carla.jpg"
-  width: 100
-  height: 130
-  timer: 499
+  open: 499
+  close: false
   layer: 50
 - id: "mall"
   title: "Mall"
   image: "mall.jpg"
-  width: 150
-  height: 160
-  posx: "centre"
-  posy: "centre"
-  timer: 8000
+  open: 8000
+  close: 37875
   layer: 40
+- id: "text01"
+  title: "text01"
+  content: "Cars, Trucks, Motorcycles, Boats, Real Estate Homes, Condos, Properties, Antiques, Coins, Toys, Apartments, Vacation Rentals, Roommates, Computers &amp; Software PCs, Macs, Notebooks, Relationships, Friends, Activity, Partners, General Merchandise Furniture, Books, Opportunities Services, Pets, Tickets Travel, Announcements, Recipes, Jokes"
+  open: 11000
+  close: 38875
+  layer: 30
+- id: "allshops"
+  title: "All Shops"
+  image: "allshops.jpg"
+  open: 35675
+  close: 46375
+  layer: 30
+- id: "map"
+  title: "Explore Map"
+  image: "explore_map.jpg"
+  open: 36175
+  close: 44875
+  layer: 20
+- id: "downloadfree"
+  title: "Downloadfree"
+  image: "downloadfree.jpg"
+  open: 36175
+  close: 100000
+  layer: 49
+- id: ""
+  title: ""
+  image: "carshowroom.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "bollywelcome.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "haley.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "indiatext.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "indiaw.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "title.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "indiawimman.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "indiaworld.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "Mars.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "mercury.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "planetslist.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "saturn.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "venus.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "annapegg.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "geocitysrch.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "halfannak.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "nasasites.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "PBridehelga12.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "princessbride.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "blue.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "dawsoncrk.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "hotnasa2.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "mhalley.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "mhalleyrl.gif'"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "nasatitle.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "chrch.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ny.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "pcardsmix.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "pcardtitle.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "pyramid.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ruin.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "tower.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "beardteacher.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "crane3.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "Dodecahedron1.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "origamilist.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "pig2.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "pinwheel.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "plussign.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "HollowIcosadodecahedron2.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "exitepeople.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "fatima.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "fatimatext9.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "fatimkids.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "jutta.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "miraclelibrary.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "mugshots.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "sermon.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "stacy.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "tiffany.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "CIAbomb.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "45disaster.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "icon-bigawards.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "manmadedisaster2.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "met4.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "meteorsitehttp.GIF"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "800predict.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "zeetv.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "bwarning1.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "equipbomb.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "geospider.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "minox.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "acworld.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ciasite.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "bomb.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "DHLplanet.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "dhlrplanet.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "DHLwebsite.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "trolleyman.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "antfarm.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ants53bi.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ants54ca.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "batt1.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "battext3.jpg'"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "bigwasptrap.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "countrylist.jpg'"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "daughter.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "daughtr2.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "kitty.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "aerialview.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "barebat5.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "headachemagnetcure.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "headachephoto.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "redheadache.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "seismiclist.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "sigearthquaks.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "Death2.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "georgebush.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "greenafrica.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "luckyelec.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ngrp.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "blairwitchproject.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "GrimsvotnKG.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "KraflaFlow.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "livechat.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "madscandinavian.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "oldbackpostlist.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "pantyhose.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "peoplechat.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ulaslistrip.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "volcanoinblue.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "worldseismicity.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "althorror.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "bryanpic.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "ekhpage.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "forum.GIF"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "helen.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "mischorror.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "mousehandonly.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "nostradamus.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "patspring.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "prophpred.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "video.gif'"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "A-z.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "atoz.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "audiencephoto.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "criketww.gif'"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "error-404.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "error404.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "flowchart.GIF"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "hardcoreraingage.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "indoor.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "kurtk.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "Lavawell.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "horrortext.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "not-found.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "notfound.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "prophbox.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "r2.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "rainbucket.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "rainggs.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "raingsummary.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "re6b.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "seagull.jpg"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "subscribe.gif"
+  open: 
+  close: 
+  layer: 
+- id: ""
+  title: ""
+  image: "top_navigate.gif"
+  open: 
+  close: 
+  layer: 
+
 

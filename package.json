@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/bjorsq/error404#readme",
   "devDependencies": {
-    "uglify-js": "^3.17.4"
+    "98.css": "github:jdan/98.css",
+    "http-server": "^14.1.1",
+    "uglify-js": "^3.17.4",
+    "xp.css": "github:botoxparty/XP.css"
   }
 }

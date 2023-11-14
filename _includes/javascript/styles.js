@@ -1,9 +1,10 @@
 
 var style = document.createElement('style');
-style.type = 'text/css';
+style.setAttribute( 'type', 'text/css' );
+/* carla animation */
 let l = ( ( window.innerWidth - 99 ) * 2 ) + ( ( window.innerHeight - 155 ) * 2 );
 let xpc = Math.floor( 100 *  ( window.innerWidth - 99 ) / l );
-var keyFrames = '\
+var css = '\
 @keyframes mrsl {\
     from {\
         left: 0;\
@@ -26,5 +27,24 @@ var keyFrames = '\
 		top: 0;\
   }\
 }';
-style.innerHTML = keyFrames;
+/* downloadfree animation */
+css += '\
+@keyframes downloadfree {\
+    from {\
+	    left: 0;\
+	    top: 0;\
+	}\
+    100% {\
+	    left: 0;\
+	    top: 100vh;\
+	}\
+}\';
+/* downloadfree - 10px per second - starting at 36secs */
+let dfdur = window.innerHeight / 10;
+css += '\
+.downloadfree {\
+	animation: downloadfree ' + dfdur + 's linear 36s infinite;\
+}\';
+style.innerHTML = css;
 document.getElementsByTagName('head')[0].appendChild(style);
+

@@ -29,6 +29,7 @@ var keyFrames = '\
 }';
 style.innerHTML = keyFrames;
 document.getElementsByTagName('head')[0].appendChild(style);
+document.getElementById('error404-container').classList.add('win98');
 
 document.addEventListener( 'DOMContentLoaded', function(e){
     if ( document.fullscreenEnabled ) {
@@ -92,10 +93,12 @@ async function startTyping() {
 function scrollUp(lineNo){
     document.getElementById('typing-paper').scrollTo(0, (lineNo * 25) + 25 );
 }
-startTyping();
 function waitForMs(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 /*********************
  * Error404 playlist *
  *********************/
+document.addEventListener( 'DOMContentLoaded', function(e){
+    startTyping();
+})

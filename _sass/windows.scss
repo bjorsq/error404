@@ -2,8 +2,34 @@
 	display: inline-block;
 	position:absolute;
 	.title-bar {
+		.win98 & {
+			background: linear-gradient(90deg, $dialog-blue, $dialog-blue-light);
+			padding: 3px 2px 3px 3px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 		button {
 			cursor: pointer;
+			.win98 & {
+				border: none;
+				color: transparent;
+				text-shadow: 0 0 $text-color;
+				background: $surface;
+				box-shadow: $border-raised-outer, $border-raised-inner;
+				border-radius: 0;
+				&:not(:disabled):active {
+					box-shadow: $border-sunken-outer, $border-sunken-inner;
+					text-shadow: 1px 1px $text-color;
+				}
+				&:focus {
+					outline: 1px dotted $black;
+					outline-offset: -4px;
+				}
+				&:disabled {
+					text-shadow: 1px 1px 0 $button-highlight;
+				}
+			}
 		}
 	}
 }
@@ -17,5 +43,42 @@
 	}
 }
 .mall {
-
+/*
+	var mallw = 150;
+	var mallh = 160;
+	var mallsx = ((env.w/2)-(mallw/2));
+	var mallsy = (env.h-(winy(mallh)));
+*/
+}
+.text01 {
+/*
+	var text01w = 290;
+	var text01h = 250;
+	var text01sx = 0;
+	var text01sy = 300;
+*/
+}
+.allshops {
+/*
+	var allshopsw = 390;
+	var allshopsh = 275;
+	var allshopssx = Math.floor((env.w/2)+12);
+	var allshopssy = 50;
+*/
+}
+.map {
+/*
+	var mapw = 200;
+	var maph = 277;
+	var mapsx = ((env.w/2)-200);
+	var mapsy = 0;
+*/
+}
+.downloadfree {
+/*
+	var downloadfreew = 287;
+	var downloadfreeh = 100;
+	var downloadfreesx = 0;
+	var downloadfreesy = 0;
+*/
 }

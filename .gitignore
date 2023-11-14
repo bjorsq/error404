@@ -1,3 +1,4 @@
 _old
+_vendor
 node_modules
 Gemfile*

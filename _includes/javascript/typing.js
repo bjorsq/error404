@@ -1,8 +1,8 @@
-async function typeSentence(el, letters) {
+async function typeLetters(el, letters) {
     let i = 0;
 	console.log(letters);
     while(i < letters.length) {
-        await waitForMs(100);
+        await waitForMs(135);
 		console.log(letters[i], i);
         el.textContent += letters[i];
         i++;
@@ -16,7 +16,7 @@ async function typeLine(eleID) {
     elref.textContent = '';
     elref.classList.add('active');
 	elref.style.display = 'flex';
-	return typeSentence(elref, letrs);
+	return typeLetters(elref, letrs);
 }
 
 async function startTyping() {
@@ -25,12 +25,9 @@ async function startTyping() {
 	    await typeLine('line'+currentLine);
 	    currentLine++;
         scrollUp(currentLine);
+        await waitForMs(25);
 	}
 }
 function scrollUp(lineNo){
     document.getElementById('typing-paper').scrollTo(0, (lineNo * 25) + 25 );
-}
-startTyping();
-function waitForMs(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
 }

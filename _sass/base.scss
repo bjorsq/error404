@@ -6,6 +6,8 @@ html, body, #error404-container {
 }
 #error404-container {
 	position:relative;
-	background-image:url('../images/windows_xp_bliss-wide.jpg');
 	background-size: cover;
+}
+body.win98 {
+	background-image:url('../images/windows_xp_bliss-wide.jpg');
 }
