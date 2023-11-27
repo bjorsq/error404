@@ -20,6 +20,7 @@ description: >-
 environment: development
 url: "https://error404.bjorsq.net"
 baseurl: ""
+imagedir: "/assets/images/"
 destination: _site/
 host: "localhost"
 google_analytics: ""

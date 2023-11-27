@@ -4,14 +4,17 @@
     60% {opacity: 0;}
     100% {opacity: 0;}
 }
-.typing {
+#typing {
+	display:inline-block;
 	margin: 0 auto;
 	width: 920px;
 	position: absolute;
+	visibility: visible;
 	top: 50%;
 	left: 50%;
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+	z-index:50;
 	.window-body {
 		height: 80px;
 		overflow: hidden;

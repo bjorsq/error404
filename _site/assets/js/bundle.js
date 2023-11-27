@@ -1,35 +1,38 @@
-
+function waitForMs(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
 
 var style = document.createElement('style');
-style.type = 'text/css';
+style.setAttribute( 'type', 'text/css' );
+/* carla animation */
 let l = ( ( window.innerWidth - 99 ) * 2 ) + ( ( window.innerHeight - 155 ) * 2 );
 let xpc = Math.floor( 100 *  ( window.innerWidth - 99 ) / l );
-var keyFrames = '\
+var css = '\
 @keyframes mrsl {\
     from {\
         left: 0;\
 	    top: 0;\
     }\
 	' + xpc + '% {\
-    	left: calc(100% - 99px);\
+    	left: calc(100vw - 100px);\
 		top: 0;\
   	}\
   	50% {\
-    	left: calc(100% - 99px);\
-		top: calc(100% - 155px);\
+    	left: calc(100vw - 100px);\
+		top: calc(100vh - 125px);\
   	}\
   	' + (50+xpc) + '% {\
 		left: 0;\
-		top: calc(100% - 155px);\
+		top: calc(100vh - 125px);\
   	}\
   	100% {\
 		left: 0;\
 		top: 0;\
   }\
 }';
-style.innerHTML = keyFrames;
+style.innerHTML = css;
 document.getElementsByTagName('head')[0].appendChild(style);
-document.getElementById('error404-container').classList.add('win98');
+
 
 document.addEventListener( 'DOMContentLoaded', function(e){
     if ( document.fullscreenEnabled ) {
@@ -58,14 +61,14 @@ document.addEventListener( 'DOMContentLoaded', function(e){
 });
 document.addEventListener('click', e => {
 	if ( e.target.getAttribute('aria-label') == 'Close' ) {
-		e.target.closest('.window').style.display = 'none';
+		e.target.closest('.window').style.visibility = 'hidden';
 	}
 });
-async function typeSentence(el, letters) {
+async function typeLetters(el, letters) {
     let i = 0;
 	console.log(letters);
     while(i < letters.length) {
-        await waitForMs(100);
+        await waitForMs(135);
 		console.log(letters[i], i);
         el.textContent += letters[i];
         i++;
@@ -79,7 +82,7 @@ async function typeLine(eleID) {
     elref.textContent = '';
     elref.classList.add('active');
 	elref.style.display = 'flex';
-	return typeSentence(elref, letrs);
+	return typeLetters(elref, letrs);
 }
 
 async function startTyping() {
@@ -88,17 +91,32 @@ async function startTyping() {
 	    await typeLine('line'+currentLine);
 	    currentLine++;
         scrollUp(currentLine);
+        await waitForMs(25);
 	}
 }
 function scrollUp(lineNo){
     document.getElementById('typing-paper').scrollTo(0, (lineNo * 25) + 25 );
 }
-function waitForMs(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
+
 /*********************
  * Error404 playlist *
  *********************/
 document.addEventListener( 'DOMContentLoaded', function(e){
+    var seed = new Date().valueOf();
     startTyping();
-})
+
+    /**
+     * windows which appear, animate, then disappear
+     * the cssv class animates visibility so this isn't needed
+     */
+    document.addEventListener('animationstart', e => {
+        if (e.animationName != 'cssv' ) {
+            e.target.classList.add('active');
+        }
+    });
+    document.addEventListener('animationend', e => {
+        if (e.animationName != 'cssv' ) {
+            e.target.classList.remove('active');
+        }
+    });
+});

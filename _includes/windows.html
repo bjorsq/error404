@@ -1,12 +1,14 @@
-  <div class="window mrsl">
+
+{%- for win in site.data.windows -%}
+  {% if win.title != "" %}
+  <div id="{{ win.id }}" class="window">
     <div class="title-bar">
-      <div class="title-bar-text">Mrs. L</div>
+      <div class="title-bar-text">{{ win.title }}</div>
       <div class="title-bar-controls">
         <button aria-label="Close"></button>
       </div>
     </div>
-    <div class="window-body">
-      <img src="https://c-ship.e-2.org/projects/error404/images/carla.jpg">
-    </div>
+    <div class="window-body"{%- if win.image -%} style="background-image:url('{{ site.url }}{{ site.imagedir }}{{ win.image }}');background-size:contain;background-repeat:no-repeat;background-position:center"{%- endif -%}>{%- if win.content -%}{{ win.content }}{%- endif -%}</div>
   </div>
-  
+  {%- endif -%}
+{%- endfor -%}

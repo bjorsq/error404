@@ -1,6 +1,11 @@
 .window {
-	display: inline-block;
-	position:absolute;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	visibility: hidden;
+	&.active {
+		visibility: visible;
+	}
 	.title-bar {
 		.win98 & {
 			background: linear-gradient(90deg, $dialog-blue, $dialog-blue-light);
@@ -32,53 +37,100 @@
 			}
 		}
 	}
+	.window-body {
+		flex: 1;
+		padding:0;
+		margin: 0;
+		background: #fff;
+	}
 }
-.mrsl {
+
+/* visibility switcher */
+@keyframes cssv {
+    from {
+	    visibility: visible;
+	}
+    100% {
+	    visibility: hidden;
+	}
+}
+#mrsl {
+    animation: mrsl 120s linear 5s infinite;	
 	left: 0;
 	top: 0;
 	z-index: 1000;
-    animation: mrsl 120s linear infinite;	
+	width: 100px;
+	height: 150px;
 	.window-body {
 		text-align: center;
 	}
 }
-.mall {
-/*
-	var mallw = 150;
-	var mallh = 160;
-	var mallsx = ((env.w/2)-(mallw/2));
-	var mallsy = (env.h-(winy(mallh)));
-*/
+#mall {
+	animation: cssv 30s linear 8s;
+    width: 150px;
+    height: 160px;
+    left: calc(50vw - 75px);
+    bottom: 0;
 }
-.text01 {
-/*
-	var text01w = 290;
-	var text01h = 250;
-	var text01sx = 0;
-	var text01sy = 300;
-*/
+#text01 {
+	animation: cssv 28s linear 11s;
+    width: 290px;
+    height: 250px;
+    left: 0;
+    top: 300px;
+	font: 1.5rem serif;
+	z-index:49;
 }
-.allshops {
-/*
-	var allshopsw = 390;
-	var allshopsh = 275;
-	var allshopssx = Math.floor((env.w/2)+12);
-	var allshopssy = 50;
-*/
+#allshops {
+	animation: cssv 11s linear 35s;
+    width: 390px;
+    height: 275px;
+    left: 52vw;
+    top: 50;
 }
-.map {
-/*
-	var mapw = 200;
-	var maph = 277;
-	var mapsx = ((env.w/2)-200);
-	var mapsy = 0;
-*/
+#map {
+	animation: cssv 9s linear 36s;
+    width: 200px;
+    height: 277px;
+    right: 0;
+    top: 0;
 }
-.downloadfree {
-/*
-	var downloadfreew = 287;
-	var downloadfreeh = 100;
-	var downloadfreesx = 0;
-	var downloadfreesy = 0;
-*/
+@keyframes downloadfree {
+    from {
+	    top: 0;
+	}
+    100% {
+	    top: calc(100vh - 100px);
+	}
+}
+#downloadfree {
+	animation: downloadfree 20s linear 36s;
+    width: 300px;
+    height: 100px;
+    left: 0;
+    top: 0;
+}
+#carshowroom {
+	animation: cssv 8.5s linear 36.5s;
+    width: 333px;
+    height: 230px;
+    left: 40vw;
+    bottom: 0;
+}
+@keyframes texttwo {
+    from {
+	    top: calc(50vh + 50px);
+	}
+    100% {
+	    top: 0
+	}
+}
+#text02 {
+	animation: texttwo 20s linear 50s;
+    width: 640px;
+    height: 290px;
+	right: 0;
+    top: calc(50vh + 50px);
+	font: 1.5rem sans-serif;
+	z-index:49;
 }
