@@ -1,48 +1,31 @@
+/**
+ * The typing window, a recreation of the tinyType applet
+ * (Courier 16px, black on white, 20px line spacing)
+ */
 @keyframes blink {
-    0% {opacity: 1;}
-    40% {opacity: 1;}
-    60% {opacity: 0;}
-    100% {opacity: 0;}
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	51% { opacity: 0; }
+	100% { opacity: 0; }
 }
-#typing {
-	display:inline-block;
-	margin: 0 auto;
-	width: 920px;
-	position: absolute;
-	visibility: visible;
-	top: 50%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	z-index:50;
-	.window-body {
-		height: 80px;
-		overflow: hidden;
-		background: #fff;
-		color: #000;
-		margin :0;
-		padding: 1em 1em 3em 1em;
-	}
+.typing-paper {
+	height: 100%;
+	padding: 10px 3px;
+	background: #fff;
+	color: #000;
+	font: 16px/20px "Courier New", Courier, monospace;
+	white-space: pre;
+	overflow: hidden;
 }
 .typed-text {
-	display: none;
-	font-size: 14px;
-	font-family: monospace;
-	padding:3px 0;
-	&.active:after {
+	height: 20px;
+	&.active::after {
+		content: "";
 		display: inline-block;
-		content: " ";
 		width: 2px;
 		height: 16px;
+		vertical-align: -2px;
 		background-color: #000;
-		animation: blink .6s linear infinite alternate;
+		animation: blink 1s linear infinite;
 	}
-}
-.input-cursor {
-	display: inline-block;
-	width: 2px;
-	height: 16px;
-	background-color: #000;
-	margin-left: 8px;
-	animation: blink .6s linear infinite alternate;
 }

@@ -23,10 +23,28 @@ The responsibility for opening windows was distributed around the application to
 
 Windows which moved on screen were animated using script running within them.
 
-### Redevelopment as CSS
+### Redevelopment
 
-In the redeveloped version of the piece, all windows are placed within the screen with their CSS visibility set to `hidden`. A CSS animation (`cssv`) is used to time their appearance on screen and the duration of their visibility. For windows which are animated on screen, CSS keyframes are used to animate their positions. In order to ensure these animated windows are visible for the duration of ther animation, a JavaScript event handler is placed on the `animationstart` and `animationend` events to toggle the class `active` on the window - these event handlers first check to ensure that they are not triggered for animated elements using the `cssv` keyframes to toggle visibility.
+The original popup scripts are kept in `_old/`. Rather than converting them by hand, `_scripts/extract-timeline.js` runs them: each popup's script is executed in a sandbox against a virtual clock and a virtual 1024x768 screen (the resolution the piece was composed for), emulating Netscape 4. Every window opened, moved, scrolled, raised and closed is recorded, and the result is written to `_data/timeline.json` with absolute times in milliseconds.
 
-This `windows.scss` file contains comments which indicate where in the original application various parameters were defined.
+```
+npm run timeline   # regenerate _data/timeline.json from _old/
+npm run minify     # build assets/js/bundle.min.js
+```
 
+In the page, windows are created from the timeline (`windows.js`) and the typed text is recreated from the tinyType applet's parameters (`typing.js`). Everything is rendered from a single clock (`clock.js`), so the windows and the text stay in step and the piece can be paused or started part way through:
 
+* `?t=<seconds>` starts the piece at that point
+* `?debug` shows the time
+* space pauses, left and right arrows skip back and forward 10 seconds (60 with shift)
+
+The desktop is always 1024x768, scaled to fit the browser window.
+
+### Desktop themes
+
+The original loaded different styles for Macs (`e2_mac.css`). The redevelopment has two desktop themes, which style the same window markup:
+
+* Windows 98 (`assets/css/win.scss`, `_sass/themes/win98.scss`), based on [98.css](https://github.com/jdan/98.css)
+* Mac OS 8/9 Platinum (`assets/css/mac.scss`, `_sass/themes/platinum.scss`), using the public domain ChicagoFLF font
+
+The theme is chosen from the viewer's platform in the `<head>` (`_includes/javascript/theme.js`), and can be overridden with `?os=mac` or `?os=win`, or in the start dialog. Both themes must fit their window frame and title bar into 6px horizontally and 26px vertically (see `CHROME` in `extract-timeline.js`).

@@ -1,10 +1,12 @@
 ---
 ---
-@import "variables.scss";
+/**
+ * Layout shared by both desktop themes
+ * Theme styles are in win.scss (Windows 98) and mac.scss (Mac OS 8/9)
+ */
 @import "utilities.scss";
 @import "fullscreen.scss";
 @import "base.scss";
-@import "typography.scss";
-@import "typing.scss";
 @import "windows.scss";
-@import "xp.scss";
+@import "typing.scss";
+@import "dialog.scss";

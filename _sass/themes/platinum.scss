@@ -1,0 +1,183 @@
+/**
+ * Mac OS 8/9 (Platinum) desktop theme
+ *
+ * Uses ChicagoFLF by Robin Casady (public domain), and borrows from
+ * Platinum by Robbie Byrd (MIT) https://github.com/robbiebyrd/platinum
+ */
+@font-face {
+	font-family: "ChicagoFLF";
+	src: url("../fonts/ChicagoFLF.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+$ui-font: "ChicagoFLF", "Charcoal", "Chicago", sans-serif;
+$platinum: #dddddd;
+$platinum-light: #ffffff;
+$platinum-mid: #bbbbbb;
+$platinum-dark: #888888;
+$platinum-frame: #000000;
+
+#screen {
+	/* a recreation of a Mac OS 8 style desktop pattern */
+	background-color: #6670a8;
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h1v1H0zM4 4h1v1H4z' fill='%237a84bc'/%3E%3Cpath d='M2 6h1v1H2zM6 2h1v1H6z' fill='%235a6398'/%3E%3C/svg%3E");
+	font-family: $ui-font;
+	font-size: 12px;
+	-webkit-font-smoothing: none;
+	color: #000;
+}
+
+/* buttons */
+#screen button {
+	font: inherit;
+	color: #000;
+	min-width: 69px;
+	height: 20px;
+	padding: 0 12px;
+	border: 1px solid $platinum-frame;
+	border-radius: 4px;
+	background: $platinum;
+	box-shadow: inset 1px 1px $platinum-light, inset -1px -1px $platinum-dark;
+	&:not(:disabled):active {
+		background: $platinum-dark;
+		color: #fff;
+		box-shadow: inset 1px 1px #555, inset -1px -1px $platinum-mid;
+	}
+	&:focus-visible {
+		outline: none;
+	}
+}
+/* the default button has a thick outline */
+.dialog-buttons {
+	#screen & button {
+		outline: 3px solid $platinum-frame;
+		outline-offset: 1px;
+		border-radius: 4px;
+		margin: 4px;
+	}
+}
+
+/* windows: 1px frame + 2px border, 19px title bar + 1px gap */
+.window {
+	padding: 2px;
+	border: 1px solid $platinum-frame;
+	background: $platinum;
+	box-shadow: inset 1px 1px $platinum-light, inset -1px -1px $platinum-dark, 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+.title-bar {
+	height: 19px;
+	margin-bottom: 1px;
+	padding: 0 4px;
+	position: relative;
+	.is-active > &,
+	.dialog > & {
+		/* the Platinum title bar stripes */
+		background: repeating-linear-gradient($platinum-light 0 1px, $platinum-dark 1px 2px) 4px 4px / calc(100% - 8px) 12px no-repeat;
+	}
+	/* balances the close box so the title is centred */
+	&::after {
+		content: "";
+		flex: none;
+		width: 19px;
+	}
+}
+.title-bar-text {
+	order: 1;
+	margin: 0 auto;
+	padding: 0 6px;
+	background: $platinum;
+	color: $platinum-dark;
+	line-height: 19px;
+	.is-active > .title-bar > &,
+	.dialog > .title-bar > & {
+		color: #000;
+	}
+}
+.title-bar-controls {
+	order: 0;
+	padding-right: 4px;
+	background: $platinum;
+	position: relative;
+	z-index: 1;
+}
+#screen .title-bar-controls button {
+	min-width: 0;
+	width: 13px;
+	height: 13px;
+	padding: 0;
+	border: 1px solid #444;
+	border-radius: 0;
+	background: linear-gradient(135deg, #999, $platinum-light);
+	box-shadow: inset 1px 1px #666, inset -1px -1px $platinum-light;
+	/* inactive windows have no close box */
+	visibility: hidden;
+	.is-active > .title-bar > & {
+		visibility: visible;
+	}
+}
+.window-body {
+	box-shadow: 0 0 0 1px $platinum-dark;
+}
+.dialog .window-body {
+	box-shadow: none;
+	a {
+		color: #0000cc;
+	}
+}
+
+/* group box and radio buttons in the start dialog */
+#screen fieldset {
+	border: 1px solid $platinum-dark;
+	box-shadow: 1px 1px $platinum-light;
+	padding: 8px 10px;
+	legend {
+		padding: 0 4px;
+	}
+}
+
+/* menu bar */
+.menubar {
+	display: flex;
+	align-items: center;
+	top: 0;
+	height: 20px;
+	padding: 0 6px;
+	background: $platinum;
+	border-bottom: 1px solid $platinum-frame;
+	box-shadow: inset 0 1px $platinum-light;
+	white-space: nowrap;
+	/* the rounded corners at the top of the screen */
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		width: 6px;
+		height: 6px;
+		background: radial-gradient(circle at 100% 100%, transparent 5px, #000 5.5px);
+	}
+	&::before {
+		left: 0;
+	}
+	&::after {
+		right: 0;
+		transform: scaleX(-1);
+	}
+}
+.menubar-menu {
+	padding: 0 9px;
+}
+.menubar-system {
+	font-size: 14px;
+	color: #3a3a8a;
+}
+.menubar-right {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.menubar-app {
+	border-left: 1px solid $platinum-dark;
+	box-shadow: -1px 0 $platinum-light;
+}

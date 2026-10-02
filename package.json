@@ -4,7 +4,9 @@
   "description": "error404 ========",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "timeline": "node _scripts/extract-timeline.js",
+    "minify": "node _scripts/minify.js",
+    "build": "npm run timeline && npm run minify"
   },
   "repository": {
     "type": "git",

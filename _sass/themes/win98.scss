@@ -1,0 +1,170 @@
+/**
+ * Windows 98 desktop theme
+ *
+ * Based on 98.css by Jordan Scales (MIT) https://github.com/jdan/98.css
+ */
+@font-face {
+	font-family: "Pixelated MS Sans Serif";
+	src: url("../fonts/ms_sans_serif.woff2") format("woff2"), url("../fonts/ms_sans_serif.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Pixelated MS Sans Serif";
+	src: url("../fonts/ms_sans_serif_bold.woff2") format("woff2"), url("../fonts/ms_sans_serif_bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+}
+$ui-font: "Pixelated MS Sans Serif", Arial, sans-serif;
+
+#screen {
+	background-color: #008080;
+	font-family: $ui-font;
+	font-size: 11px;
+	-webkit-font-smoothing: none;
+	color: $text-color;
+}
+
+/* buttons */
+#screen button {
+	font: inherit;
+	color: #000;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 0;
+	background: $surface;
+	box-shadow: $border-raised-outer, $border-raised-inner;
+	min-width: 75px;
+	min-height: 23px;
+	padding: 0 12px;
+	&:not(:disabled):active {
+		box-shadow: $border-sunken-outer, $border-sunken-inner;
+	}
+	&:focus-visible {
+		outline: 1px dotted #000;
+		outline-offset: -4px;
+	}
+}
+
+/* windows: 3px frame, 18px title bar + 2px gap */
+.window {
+	padding: 3px;
+	background: $surface;
+	box-shadow: $border-window-outer, $border-window-inner;
+}
+.title-bar {
+	height: 18px;
+	margin-bottom: 2px;
+	padding: 0 2px 0 3px;
+	justify-content: space-between;
+	background: linear-gradient(90deg, $dialog-gray, $dialog-gray-light);
+	font-weight: bold;
+	.is-active > &,
+	.dialog > & {
+		background: linear-gradient(90deg, $dialog-blue, $dialog-blue-light);
+	}
+}
+.title-bar-text {
+	color: $surface;
+	margin-right: 24px;
+	.is-active > .title-bar > &,
+	.dialog > .title-bar > & {
+		color: #fff;
+	}
+}
+#screen .title-bar-controls button {
+	min-width: 16px;
+	min-height: 14px;
+	width: 16px;
+	height: 14px;
+	padding: 0;
+	&[aria-label="Close"] {
+		margin-left: 2px;
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: top 3px left 4px;
+	}
+}
+.window-body {
+	box-shadow: none;
+}
+.dialog .window-body {
+	color: #000;
+	a {
+		color: $link-blue;
+	}
+}
+
+/* group box and radio buttons in the start dialog */
+#screen fieldset {
+	border: none;
+	padding: 10px 10px 8px;
+	box-shadow: $border-sunken-outer, inset -2px -2px $button-face, inset 2px 2px $button-shadow;
+	legend {
+		background: $surface;
+		padding: 0 2px;
+	}
+}
+
+/* taskbar */
+.taskbar {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	bottom: 0;
+	height: 28px;
+	padding: 2px 2px 0;
+	background: $surface;
+	box-shadow: inset 0 1px $button-face, inset 0 2px $button-highlight;
+}
+#screen .taskbar-start {
+	flex: none;
+	min-width: 54px;
+	height: 22px;
+	min-height: 22px;
+	padding: 0 4px 0 22px;
+	font-weight: bold;
+	position: relative;
+	&::before {
+		/* a generic four-pane window icon */
+		content: "";
+		position: absolute;
+		left: 5px;
+		top: 5px;
+		width: 14px;
+		height: 11px;
+		background:
+			linear-gradient(#ff0000, #ff0000) 0 0 / 6px 5px no-repeat,
+			linear-gradient(#00a000, #00a000) 7px 0 / 6px 5px no-repeat,
+			linear-gradient(#0000ff, #0000ff) 0 6px / 6px 5px no-repeat,
+			linear-gradient(#ffd800, #ffd800) 7px 6px / 6px 5px no-repeat;
+	}
+}
+.taskbar-tasks {
+	flex: 1;
+	display: flex;
+	gap: 3px;
+	min-width: 0;
+	overflow: hidden;
+	padding-left: 4px;
+	border-left: 1px solid $button-shadow;
+	box-shadow: inset 1px 0 $button-highlight;
+}
+#screen .taskbar-task {
+	flex: 0 1 160px;
+	min-width: 24px;
+	height: 22px;
+	min-height: 22px;
+	padding: 0 6px;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.taskbar-tray {
+	flex: none;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 10px;
+	box-shadow: inset -1px -1px $button-highlight, inset 1px 1px $button-shadow;
+}

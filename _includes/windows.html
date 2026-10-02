@@ -1,14 +1,16 @@
-
-{%- for win in site.data.windows -%}
-  {% if win.title != "" %}
-  <div id="{{ win.id }}" class="window">
-    <div class="title-bar">
-      <div class="title-bar-text">{{ win.title }}</div>
-      <div class="title-bar-controls">
-        <button aria-label="Close"></button>
-      </div>
+{%- comment -%}
+    Markup for every window in the piece. Windows are created from this
+    template by windows.js using the timeline in _data/timeline.json.
+    Both desktop themes style this same markup.
+{%- endcomment -%}
+<template id="window-template">
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text"></div>
+            <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body"></div>
     </div>
-    <div class="window-body"{%- if win.image -%} style="background-image:url('{{ site.url }}{{ site.imagedir }}{{ win.image }}');background-size:contain;background-repeat:no-repeat;background-position:center"{%- endif -%}>{%- if win.content -%}{{ win.content }}{%- endif -%}</div>
-  </div>
-  {%- endif -%}
-{%- endfor -%}
+</template>

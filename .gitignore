@@ -1,4 +1,5 @@
 _old
 _vendor
+_site
 node_modules
 Gemfile*
