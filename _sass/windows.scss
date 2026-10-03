@@ -34,6 +34,10 @@
 	display: flex;
 	flex: none;
 }
+/* the Mac zoom and collapse boxes (platinum.scss) */
+.title-bar-boxes {
+	display: none;
+}
 /* the content of the original popup pages, with browser default styles */
 .window-body {
 	flex: 1;
