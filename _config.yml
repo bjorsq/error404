@@ -42,3 +42,4 @@ exclude:
   - README.md
   - public
   - node_modules
+  - output

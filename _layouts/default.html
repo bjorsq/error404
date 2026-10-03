@@ -2,13 +2,19 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 {% include head.html %}
 
-<body class="xp">
-    <main id="error404-container">
-        {% include typing.html %}
-        {% include windows.html %}
+<body>
+    <main id="screen" class="desktop">
+        {% include menubar.html %}
+        <div id="windows"></div>
+        {% include dialog.html %}
         {{ content }}
+        {% include taskbar.html %}
+        <div id="flash" aria-hidden="true"></div>
     </main>
+    <div id="debug" hidden></div>
     {% include fullscreen.html %}
+    {% include windows.html %}
+    <script id="timeline-data" type="application/json">{{ site.data.timeline | jsonify }}</script>
     {% include foot.html %}
 </body>
 </html>

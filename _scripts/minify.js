@@ -1,16 +1,17 @@
 /**
- * Minifies javascript using UglifyJS and SVG using SVGO
+ * Minifies javascript using UglifyJS
+ * The files are the same (and in the same order) as assets/js/bundle.js
  */
 const fs = require('fs');
 const path = require('path');
 const UglifyJS = require("uglify-js");
 
 const jsdir = '../_includes/javascript/';
-fs.writeFileSync( path.resolve( __dirname, '../assets/scripts/bundle.min.js' ), UglifyJS.minify({
-     "utilities.js": fs.readFileSync( path.resolve( __dirname, jsdir, 'utilities.js' ), "utf8" ),
-     "styles.js": fs.readFileSync( path.resolve( __dirname, jsdir, 'styles.js' ), "utf8" ),
-     "fullscreen.js": fs.readFileSync( path.resolve( __dirname, jsdir, 'fullscreen.js' ), "utf8" ),
-     "windows.js": fs.readFileSync( path.resolve( __dirname, jsdir, 'windows.js' ), "utf8" ),
-     "typing.js": fs.readFileSync( path.resolve( __dirname, jsdir, 'typing.js' ), "utf8" ),
-     "playlist.js": fs.readFileSync( path.resolve( __dirname, jsdir, 'playlist.js' ), "utf8" )
-}, { toplevel: true } ).code, "utf8" );
+const files = ['utilities.js', 'fullscreen.js', 'clock.js', 'desktop.js', 'windows.js', 'typing.js', 'playlist.js', 'screenshot.js'];
+const sources = {};
+files.forEach(file => sources[file] = fs.readFileSync(path.resolve(__dirname, jsdir, file), "utf8"));
+const result = UglifyJS.minify(sources, { toplevel: true });
+if (result.error) {
+    throw result.error;
+}
+fs.writeFileSync(path.resolve(__dirname, '../assets/js/bundle.min.js'), result.code, "utf8");

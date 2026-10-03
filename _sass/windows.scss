@@ -1,287 +1,61 @@
 /**
  * error404 windows
  *
- * In the original piece, popup windows were created to display images and text
- * on the screen. These windows has different sizes and were placed in different
- * positions on the screen. Some windows were animated so they moved around the
- * screen, and all windows (with the exception of Mrs.L  and the typing window)
- * were closed before the typing finished. All windows were co-ordinated with
- * the typewritten text.
- *
- * The responsibility for opening windows was distributed around the application
- * to ensure that user actions (closing windows, for example) would not disrupt
- * the playing of the piece too much. So the main index.html file (typing) cued
- * up "acts" within the piece where it opened a window which then proceeded to
- * open others. Sometimes, the window opened by index.html would close before 
- * the "act" was complete, so it needed to delegate the responsibility of 
- * opening more windows to one of the windows it opened.
- *
- * Windows which moved on screen were animated using script running within them.
- *
- * Redevelopment as CSS
- *
- * In the redeveloped version of the piece, all windows are placed within the 
- * screen with their CSS visibility set to "hidden". An animation (cssv) is used
- * to time their appearance on screen and the duration of their visibility. For
- * windows which are animated on screen, CSS keyframes are used to animate their
- * positions. In order to ensure these animated windows are visible for the
- * duration of ther animation, a JavaScript event handler is placed on the 
- * animationstart and animationend events to toggle the class "active" on the 
- * window - these event handlers first check to ensure that they are not triggered
- * for animated elements using the cssv keyframes to toggle visibility.
- *
- * This file contains comments which indicate where in the original application
- * various parameters were defined.
+ * Windows are created by windows.js from the timeline in _data/timeline.json,
+ * which is generated from the original piece by _scripts/extract-timeline.js.
+ * Each window is sized to its original popup size plus the window chrome
+ * (6px wide, 26px high - see CHROME in extract-timeline.js) and positioned
+ * with a transform. Themes must fit their frame and title bar into this:
+ * 3px frame on each side, and 20px for the title bar.
  */
 .window {
+	position: absolute;
+	left: 0;
+	top: 0;
 	display: flex;
 	flex-direction: column;
-	position: absolute;
-	visibility: hidden;
-	&.active {
-		visibility: visible;
-	}
-	.window-body {
-		flex: 1;
-		padding:0;
-		margin: 0;
-		background: #fff;
+	box-sizing: border-box;
+	&[hidden] {
+		display: none;
 	}
 }
-/* visibility switcher */
-@keyframes cssv {
-    from {
-	    visibility: visible;
+.title-bar {
+	flex: none;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+.title-bar-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.title-bar-controls {
+	display: flex;
+	flex: none;
+}
+/* the Mac zoom and collapse boxes (platinum.scss) */
+.title-bar-boxes {
+	display: none;
+}
+/* the content of the original popup pages, with browser default styles */
+.window-body {
+	flex: 1;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	color: #000;
+	font: 16px "Times New Roman", Times, serif;
+	-webkit-font-smoothing: auto;
+	&.margins {
+		padding: 8px;
 	}
-    100% {
-	    visibility: hidden;
+	p, ul {
+		margin: 1em 0;
 	}
-}
-/* index.html */
-#mrsl {
-    animation: mrsl 120s linear 0.5s infinite;	
-	left: 0;
-	top: 0;
-	z-index: 1000;
-	.window-body {
-		text-align: center;
+	img {
+		vertical-align: baseline;
 	}
-	width: 100px;
-	height: 150px;
-}
-/* index.html */
-#mall {
-	animation: cssv 30s linear 8s;
-    left: calc(50vw - 75px);
-    bottom: 0;
-    width: 150px;
-    height: 160px;
-}
-/* 01mall.html */
-#text01 {
-	animation: cssv 28s linear 11s;
-    left: 0;
-    top: 300px;
-	font: 1.5rem serif;
-	z-index:49;
-    width: 290px;
-    height: 250px;
-}
-/* 01mall.html */
-#allshops {
-	animation: cssv 11s linear 35s;
-    left: 52vw;
-    top: 50;
-    width: 390px;
-    height: 275px;
-}
-/* 01allshops.html */
-#map {
-	animation: cssv 9s linear 36s;
-    right: 0;
-    top: 0;
-    width: 200px;
-    height: 277px;
-}
-/* 01downloadfree.html */
-@keyframes downloadfree {
-    from {
-	    top: 0;
-	}
-    100% {
-	    top: calc(100vh - 100px);
-	}
-}
-/* 01allshops.html */
-#downloadfree {
-	animation: downloadfree 20s linear 36s;
-    left: 0;
-    top: 0;
-    width: 300px;
-    height: 100px;
-}
-/* 01allshops.html */
-#carshowroom {
-	animation: cssv 8.5s linear 36.5s;
-    left: 40vw;
-    bottom: 0;
-    width: 333px;
-    height: 230px;
-}
-/* 01text02.html */
-@keyframes texttwo {
-    from {
-	    top: calc(50vh + 50px);
-	}
-    100% {
-	    top: 0
-	}
-}
-/* index.html */
-#text02 {
-	animation: texttwo 20s linear 50s;
-	right: 0;
-    top: calc(50vh + 50px);
-	font: 1.5rem sans-serif;
-	z-index:49;
-    width: 640px;
-    height: 290px;
-}
-/* index.html */
-#indiaw {
-	animation: cssv 52s linear 15s;
-	right: 0;
-	top: calc(50vh + 50px);
-	width: 241px;
-	height: 364px;
-}
-/* 02indiaw.html */
-#bollywelcome {
-	animation: cssv 53s linear 5.5s;
-	left: 0;
-	bottom: 0;
-	width: 200px;
-	height: 127px;
-}
-/* 02indiaw.html */
-#mars {
-	animation: cssv 55s linear 16s;
-	left: calc(50vw - 150px);
-	top: calc(50vh - 246px);
-	width: 300px;
-	height: 196px;
-}
-/* 02indiaw.html */
-#indianews {
-	animation: cssv 57.5s linear 2.5s;
-	left: 0;
-	top: 0;
-	width: 184px;
-	height: 100px;
-}
-/* 02haley.html */
-@keyframes haley {
-    from {
-	    left: 400px;
-	}
-    100% {
-	    left: 0;
-	}
-}
-/* 02indiaw.html */
-#haley {
-	left: 400px;
-	top: 120px;
-    animation: haley 60.9s linear 40s;
-	width: 130px;
-	height: 186px;
-}
-/* 02planetslist.html */
-@keyframes planetslist {
-	from {
-		left: 320px;
-	}
-	100% {
-		left: 0;
-	}
-}
-/* 02indiaw.html */
-#planetslist {
-	animation: planetslist 66.9s linear 32s;
-	left: 320px;
-	top: 10px;
-    width: 200px;
-	height: 108px;
-}
-/* 02mars.html */
-#indiatext {
-	animation: cssv 67s linear 9.5s;
-    left: 0;
-    top: 40px;
-	width: 600px;
-    height: 85px;
-}
-/* 02mars.html */
-#text03 {
-	animation: cssv 67.5s linear 4.5s;
-	right: 0;
-	top: 0;
-	font: 1.5rem serif;
-	color: #ff1741;
-	ul {
-		list-style: none;
-	}
-	width: 310px;
-    height: 330px;
-}
-/* 02mars.html */
-#text04 {
-	animation: cssv 68.5s linear 8s;
-	font: 1.5rem mono;
-	right: 0;
-	bottom: 0;
-	width: 600px;
-    height: 300px;
-}
-/* 02saturn.html */
-@keyframes saturn {
-	from {
-		left: 0;
-	}
-	100% {
-		left: calc(100vw - 400px);
-	}
-}
-/* 02mars.html */
-#saturn {
-	animation: saturn 69.5s linear 60s;
-	width: 400px;
-    height: 173px;
-	left: 0;
-	bottom: 0;
-}
-/* 02mars.html */
-#mercury {
-	animation: cssv 71s linear 19s;
-	width: 400px;
-    height: 203px;
-	left: 0;
-	top: calc(50vh + 50px);
-}
-/* 02venus.html */
-@keyframes venus {
-	from {
-		left: 258px;
-	}
-	100% {
-		left: 0;
-	}
-}
-/* 02mercury.html */
-#venus {
-	animation: venus 71s linear 25.8s;
-	width: 500px;
-    height: 223px;
-	left: 258px;
-	top: 0;
 }
