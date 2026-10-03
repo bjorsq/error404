@@ -42,7 +42,7 @@ The desktop is always 1024x768, scaled to fit the browser window.
 
 ### Rendering to video
 
-`_scripts/capture.js` renders the piece to video at 1024x768, one video for each desktop theme. It opens the built site in headless Chrome with `?capture`, renders each frame at an exact time with `window.renderAt()` and pipes screenshots to ffmpeg. Rendering doesn't need to keep up with real time: the piece is split into chunks, which are rendered in parallel and joined without re-encoding. In capture mode the typing cursor blinks in time with the piece, and the desktop clock starts at `--clock` (default 12:00) and runs with it.
+`_scripts/capture.js` renders the piece to video at 1024x768, one video for each desktop theme. It opens the built site in headless Chrome with `?capture`, renders each frame at an exact time with `window.renderAt()` and pipes screenshots to ffmpeg. Rendering doesn't need to keep up with real time: the piece is split into chunks, which are rendered in parallel and joined without re-encoding. In capture mode the typing cursor blinks in time with the piece, and the desktop clock starts at `--clock` and runs with it: the default is 12:00, `--clock 23:30` sets another time, and `--clock now` uses the time the render starts. (When the piece plays in the browser, the clock always shows the viewer's own time.)
 
 ```
 npm run capture                                        # builds the site, then renders output/error404-win.mp4 and error404-mac.mp4

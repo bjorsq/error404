@@ -12,7 +12,9 @@
  *   node _scripts/capture.js --os mac --from 60 --to 90      (a test clip)
  *
  * Output: output/error404-win.mp4 and output/error404-mac.mp4
- * --clock sets the time shown on the desktop clock at the start of the piece.
+ * --clock sets the time shown on the desktop clock at the start of the piece,
+ * e.g. --clock 23:30, or --clock now for the time the render starts. (In the
+ * browser the clock always shows the viewer's own time.)
  */
 const fs = require('fs');
 const path = require('path');
@@ -31,6 +33,10 @@ for (let i = 0; i < argv.length; i += 2) {
     opts[argv[i].replace(/^--/, '')] = argv[i + 1];
 }
 const fps = parseFloat(opts.fps);
+if (opts.clock === 'now') {
+    const now = new Date();
+    opts.clock = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+}
 
 /* a minimal static server for the built site */
 function serve() {
