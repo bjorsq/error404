@@ -6,6 +6,10 @@
  * part way through, and ?debug to show the time. While playing:
  *   space        pause / play
  *   left, right  back / forward 10 seconds (with shift, 60 seconds)
+ *
+ * ?capture is used by _scripts/capture.js to render the piece to video: the
+ * piece doesn't play, and window.renderAt(ms) renders any moment of it.
+ * ?clock=HH:MM sets the time shown on the desktop clock at the start.
  */
 document.addEventListener('DOMContentLoaded', function () {
     const timeline = JSON.parse(document.getElementById('timeline-data').textContent);
@@ -20,6 +24,31 @@ document.addEventListener('DOMContentLoaded', function () {
     Desktop.init();
     Windows.build(timeline, document.getElementById('windows'));
     Typing.build(timeline.typing, Windows.get(timeline.typing.window));
+
+    if (params.has('capture')) {
+        const [hours, minutes] = (params.get('clock') || '12:00').split(':').map(Number);
+        const clockStart = new Date(2000, 0, 1, hours, minutes).getTime();
+        dialog.hidden = true;
+        document.body.classList.add('playing', 'capture');
+        window.renderAt = t => {
+            if (Windows.render(t)) {
+                Desktop.updateTasks(Windows.visible().filter(w => w.data.id === timeline.typing.window));
+            }
+            Typing.render(t);
+            /* the typing cursor blinks once a second */
+            document.body.classList.toggle('cursor-off', t % 1000 >= 500);
+            Desktop.tick(new Date(clockStart + t));
+        };
+        /* every image, including swapped ones, loaded before capturing */
+        const sources = new Set([...document.querySelectorAll('#windows img')].map(img => img.src));
+        timeline.windows.forEach(w => (w.swaps || []).forEach(s => sources.add(new URL(s[2], location.href).href)));
+        window.captureReady = Promise.all([document.fonts.ready, ...[...sources].map(src => {
+            const img = new Image();
+            img.src = src;
+            return img.decode().catch(() => console.warn('image failed to load: ' + src));
+        })]).then(() => ({ end }));
+        return;
+    }
 
     function start(at) {
         dialog.hidden = true;
@@ -48,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             t = end;
         }
         if (Windows.render(t)) {
-            Desktop.updateTasks(Windows.visible());
+            Desktop.updateTasks(Windows.visible().filter(w => w.data.id === timeline.typing.window));
         }
         Typing.render(t);
         if (debug) {

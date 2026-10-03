@@ -7,3 +7,4 @@
 {% include javascript/windows.js %}
 {% include javascript/typing.js %}
 {% include javascript/playlist.js %}
+{% include javascript/screenshot.js %}

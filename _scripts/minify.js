@@ -7,7 +7,7 @@ const path = require('path');
 const UglifyJS = require("uglify-js");
 
 const jsdir = '../_includes/javascript/';
-const files = ['utilities.js', 'fullscreen.js', 'clock.js', 'desktop.js', 'windows.js', 'typing.js', 'playlist.js'];
+const files = ['utilities.js', 'fullscreen.js', 'clock.js', 'desktop.js', 'windows.js', 'typing.js', 'playlist.js', 'screenshot.js'];
 const sources = {};
 files.forEach(file => sources[file] = fs.readFileSync(path.resolve(__dirname, jsdir, file), "utf8"));
 const result = UglifyJS.minify(sources, { toplevel: true });

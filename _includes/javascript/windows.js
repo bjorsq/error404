@@ -78,7 +78,9 @@ const Windows = {
             if (!visible) {
                 return;
             }
-            const [x, y] = valueAt(data.moves, t).map(Math.round);
+            /* on whole screen pixels (see Desktop.fit) */
+            const pixels = Desktop.pixels || 1;
+            const [x, y] = valueAt(data.moves, t).map(v => Math.round(v * pixels) / pixels);
             if (x !== win.x || y !== win.y) {
                 win.el.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
                 win.x = x;

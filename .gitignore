@@ -3,3 +3,4 @@ _vendor
 _site
 node_modules
 Gemfile*
+output

@@ -40,6 +40,16 @@ In the page, windows are created from the timeline (`windows.js`) and the typed 
 
 The desktop is always 1024x768, scaled to fit the browser window.
 
+### Rendering to video
+
+`_scripts/capture.js` renders the piece to video at 1024x768, one video for each desktop theme. It opens the built site in headless Chrome with `?capture`, renders each frame at an exact time with `window.renderAt()` and pipes screenshots to ffmpeg. Rendering doesn't need to keep up with real time: the piece is split into chunks, which are rendered in parallel and joined without re-encoding. In capture mode the typing cursor blinks in time with the piece, and the desktop clock starts at `--clock` (default 12:00) and runs with it.
+
+```
+npm run capture                                        # builds the site, then renders output/error404-win.mp4 and error404-mac.mp4
+node _scripts/capture.js --os mac --jobs 6             # one theme
+node _scripts/capture.js --os win --from 60 --to 90    # a test clip (seconds)
+```
+
 ### Desktop themes
 
 The original loaded different styles for Macs (`e2_mac.css`). The redevelopment has two desktop themes, which style the same window markup:

@@ -23,7 +23,13 @@ const SRC = path.join(OLD, 'error404');
 const OUT = path.resolve(__dirname, '../_data/timeline.json');
 const IMAGES = path.resolve(__dirname, '../assets/images');
 
-const SCREEN = { width: 1024, height: 768 };
+/**
+ * The screen the original scripts see: the 1024x768 screen the piece was
+ * composed for, less the Windows taskbar (28px) or Mac menu bar (20px).
+ * The smaller of the two is used so one timeline fits both desktop themes,
+ * and windows never go behind the taskbar or menu bar
+ */
+const SCREEN = { width: 1024, height: 740 };
 /**
  * Window chrome (frame + title bar) added to a popup's content size. Both
  * desktop themes (Windows 98 and Mac OS 8/9) are styled to fit this, so
@@ -126,7 +132,9 @@ function openWindow(file, name, features, opener) {
         title: page.title,
         open: now,
         close: null,
-        w: f.w, h: f.h,
+        /* windows can't be bigger than the screen (a few of the originals were 768px high) */
+        w: Math.min(f.w, SCREEN.width - CHROME.x),
+        h: Math.min(f.h, SCREEN.height - CHROME.y),
         moves: [],
         scrolls: [],
         raises: [],
@@ -334,7 +342,7 @@ scroller.ctx.window.opener = { window: { resizeTo: () => {} } };
 run();
 
 const out = {
-    screen: SCREEN,
+    desktop: SCREEN,
     chrome: CHROME,
     duration: Math.max(...windows.map(r => r.close ?? 0)),
     typing: {

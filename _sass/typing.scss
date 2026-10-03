@@ -29,3 +29,10 @@
 		animation: blink 1s linear infinite;
 	}
 }
+/* when capturing to video, the cursor blinks in time with the piece */
+.capture .typed-text.active::after {
+	animation: none;
+}
+.capture.cursor-off .typed-text.active::after {
+	opacity: 0;
+}

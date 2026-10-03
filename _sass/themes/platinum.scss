@@ -77,8 +77,9 @@ $platinum-frame: #000000;
 	/* balances the close box so the title is centred */
 	&::after {
 		content: "";
+		order: 2;
 		flex: none;
-		width: 19px;
+		width: 17px;
 	}
 }
 .title-bar-text {
@@ -133,6 +134,11 @@ $platinum-frame: #000000;
 	legend {
 		padding: 0 4px;
 	}
+}
+
+/* the desktop area starts below the menu bar */
+#windows {
+	top: 20px;
 }
 
 /* menu bar */

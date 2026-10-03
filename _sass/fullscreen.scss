@@ -58,3 +58,45 @@
 
 
 
+
+/* not shown when capturing to video */
+.capture .toggle-fullscreen-btn {
+	display: none;
+}
+
+/* screenshot button, under the fullscreen button (screenshot.js) */
+.screenshot-btn {
+	position: fixed;
+	z-index: 10000;
+	top: 52px;
+	right: 10px;
+	padding: 2px;
+	border: none;
+	background: rgba(255,255,255,0.5);
+	width: 32px;
+	min-width: 32px;
+	height: 32px;
+	box-shadow: none;
+	cursor: pointer;
+	outline: none;
+	&:hover .screenshot-svg circle,
+	&:focus .screenshot-svg circle {
+		transform: scale(1.2);
+	}
+}
+.screenshot-svg {
+	display: block;
+	height: auto;
+	path, circle {
+		fill: none;
+		stroke: hsl(225, 10%, 8%);
+		stroke-width: 2.5;
+		stroke-linejoin: round;
+		transform-box: fill-box;
+		transform-origin: center;
+		transition: .15s;
+	}
+}
+.capture .screenshot-btn {
+	display: none;
+}
