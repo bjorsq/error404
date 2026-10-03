@@ -112,9 +112,9 @@ $platinum-frame: #000000;
 	box-shadow: inset 1px 1px #666, inset -1px -1px $platinum-light;
 	/* inactive windows have no close box */
 	visibility: hidden;
-	.is-active > .title-bar > & {
-		visibility: visible;
-	}
+}
+#screen .is-active > .title-bar .title-bar-controls button {
+	visibility: visible;
 }
 .window-body {
 	box-shadow: 0 0 0 1px $platinum-dark;
