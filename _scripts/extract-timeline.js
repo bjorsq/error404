@@ -50,6 +50,26 @@ const IMAGE_RENAMES = {
 };
 
 /**
+ * Windows which didn't work as intended in the original, keyed by file
+ *  - h: content height to open the window at, in place of the original
+ *  - scrollTo: scroll the content from the top to this offset over the
+ *    window's movement, so it reaches the end as the window stops moving
+ */
+const TEXT15A_H = SCREEN.height - 240 - CHROME.y;
+const ADJUSTMENTS = {
+    /*
+     * the origami list was opened full screen, so its MoveDown script (which
+     * moves it down until it reaches the bottom of the screen) closed it
+     * straight away. Opened 240px short of the screen height it moves down
+     * as scripted (1px every 100ms, so 24s), reaching the bottom just before
+     * act 7 at 375.7s, and its content scrolls as it moves. scrollTo is the
+     * bottom of the last line of text (1409px in both themes, plus the 8px
+     * margin, skipping the empty lines at the end) less the window height
+     */
+    '06text15a.html': { h: TEXT15A_H, scrollTo: 1417 - TEXT15A_H },
+};
+
+/**
  * Virtual clock and timer queue
  */
 let now = 0;
@@ -116,6 +136,9 @@ function parseFeatures(str) {
 function openWindow(file, name, features, opener) {
     const page = readPage(file);
     const f = parseFeatures(features);
+    if (ADJUSTMENTS[file] && ADJUSTMENTS[file].h) {
+        f.h = ADJUSTMENTS[file].h;
+    }
     const existing = named[name];
     if (existing && !existing.closed) {
         /* re-using a named window navigates it, keeping its size and position */
@@ -362,6 +385,10 @@ const out = {
             raises: r.raises.map(([t, z]) => [t, z]),
         };
         if (r.scrolls.length) w.scrolls = keyframes(r.scrolls);
+        const adjust = ADJUSTMENTS[r.file];
+        if (adjust && adjust.scrollTo && w.moves.length > 1) {
+            w.scrolls = [[w.moves[0][0], 0], [w.moves[w.moves.length - 1][0], adjust.scrollTo]];
+        }
         if (r.swaps.length) w.swaps = r.swaps.map(([t, img, src]) => [t, img, `assets/images/${imageName(src.replace(/^images\//, ''))}`]);
         const style = [];
         if (r.page.bgcolor) style.push(`background-color:${r.page.bgcolor}`);
